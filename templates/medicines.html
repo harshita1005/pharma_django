@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Medicines{% endblock title %}
+
+{% block body %}
+<div class="container mt-4">
+    <h2 class="text-center">AVAILABLE MEDICINES</h2>
+    <br/>
+    <div class="card-group mx-0">
+
+        {% for med in mymed %}
+        <div class="card ">
+          <div class="col-md-6 p-3" style="width: 18rem;">
+            <img src="{{med.img.url}}" class="card-img-top" alt="..."/>
+            <div class="card-body padding-0 mb-4">
+              <h5 class="card-title text-dark">{{med.title}}</h5>
+              <p class="text-success bg-light">Price : {{med.price}} Rs</p>
+              <p class="card-text">{{med.description}}</p>
+              <p class="text-danger"><b>Expiry Date : {{med.exp}}</b></p>
+              <a href="/order" class="btn btn-outline-success btn-lg">Order Now</a>
+            </div>
+          </div>
+        </div>
+    
+        {% endfor %}
+        
+    </div>
+</div>
+{% endblock body %}
